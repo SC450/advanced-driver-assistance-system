@@ -1,0 +1,4 @@
+train: image_data/train
+val: image_data/test
+nc: 5
+names: ['Truck', 'Car', 'Person', 'TrafficLight', 'TrafficSign']
