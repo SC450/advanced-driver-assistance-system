@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>6de7387e-202106083625288.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>756</width>
+<height>567</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>Truck</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>147</xmin>
+<ymin>86</ymin>
+<xmax>593</xmax>
+<ymax>451</ymax>
+</bndbox>
+</object>
+</annotation>

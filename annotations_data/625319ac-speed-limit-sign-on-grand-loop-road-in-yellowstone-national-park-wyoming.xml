@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>625319ac-speed-limit-sign-on-grand-loop-road-in-yellowstone-national-park-wyoming.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>612</width>
+<height>408</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>SpeedLimitSign</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>433</xmin>
+<ymin>104</ymin>
+<xmax>486</xmax>
+<ymax>171</ymax>
+</bndbox>
+</object>
+</annotation>

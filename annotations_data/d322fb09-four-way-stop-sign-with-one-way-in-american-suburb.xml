@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>d322fb09-four-way-stop-sign-with-one-way-in-american-suburb.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>612</width>
+<height>405</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>StopSign</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>261</xmin>
+<ymin>74</ymin>
+<xmax>332</xmax>
+<ymax>148</ymax>
+</bndbox>
+</object>
+</annotation>

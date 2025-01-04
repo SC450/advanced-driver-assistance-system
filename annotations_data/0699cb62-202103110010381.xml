@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>0699cb62-202103110010381.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>756</width>
+<height>567</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>Semi</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>97</xmin>
+<ymin>4</ymin>
+<xmax>654</xmax>
+<ymax>566</ymax>
+</bndbox>
+</object>
+</annotation>

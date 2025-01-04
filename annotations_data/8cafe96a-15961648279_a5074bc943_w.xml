@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>8cafe96a-15961648279_a5074bc943_w.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>400</width>
+<height>270</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>StopSign</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>48</xmin>
+<ymin>141</ymin>
+<xmax>67</xmax>
+<ymax>181</ymax>
+</bndbox>
+</object>
+</annotation>

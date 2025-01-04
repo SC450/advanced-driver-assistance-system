@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<folder>images</folder>
+<filename>dae9108b-truck-going-fast-on-the-road-with-speed-limit.jpg</filename>
+<source>
+<database>MyDatabase</database>
+<annotation>COCO2017</annotation>
+<image>flickr</image>
+<flickrid>NULL</flickrid>
+<annotator>1</annotator>
+</source>
+<owner>
+<flickrid>NULL</flickrid>
+<name>Label Studio</name>
+</owner>
+<size>
+<width>612</width>
+<height>409</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>SpeedLimitSign</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>429</xmin>
+<ymin>148</ymin>
+<xmax>506</xmax>
+<ymax>241</ymax>
+</bndbox>
+</object>
+</annotation>
