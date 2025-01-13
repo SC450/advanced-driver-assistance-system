@@ -5,7 +5,7 @@ from yolo_predictions import YOLO_Pred
 from lane_detection import LaneDetector
 
 # Get video
-vid_file = "dashcam_data/2.mp4"
+vid_file = "dashcam_data/1.mp4"
 vid = cv.VideoCapture(vid_file)
 
 # Get YOLO model
@@ -45,6 +45,7 @@ while True:
         pred_frame = yolo.predictions(hough_drawn)
         cv.imshow("Advanced Driver Assistance System", pred_frame)
 
+    # Quit program if escape key is pressed
     if cv.waitKey(25) == 27:
         break
 

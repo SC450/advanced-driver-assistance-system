@@ -97,32 +97,7 @@ class YOLO_Pred():
         x_factor = image_w/INPUT_WH_YOLO
         y_factor = image_h/INPUT_WH_YOLO
 
-        # Approach 1
-        # for i in range(len(detections)):
-        #     row = detections[i]
-        #     confidence = row[4] # Confidence is in the 5th column of the row
-        #     if confidence > CONFIDENCE_THRESHOLD:
-        #         class_score = row[5:].max() # Take the maximum probability of 10 objects possible
-        #         class_id = row[5:].argmax() # Get the index position at which maximum probability occurs
-
-        #         if class_score > PROBABILITY_THRESHOLD:
-        #             cx, cy, w, h = row[:4]
-
-        #             # Construct the bounding box from the four values
-        #             # Get left, top, width, and height
-        #             left = int((cx - 0.5 * w) * x_factor)
-        #             top = int((cy - 0.5 * h) * y_factor)
-        #             width = int(w * x_factor)
-        #             height = int(h * y_factor)
-
-        #             box = np.array([left, top, width, height])
-
-        #             # Append values into respective lists
-        #             confidences.append(confidence)
-        #             boxes.append(box)
-        #             classes.append(class_id)
-
-        # Approach 2
+        # Get detection data for each detection
         [self.get_detection_data(detections[i], x_factor, y_factor, confidences, boxes, classes) for i in range(len(detections))]
 
         # Cleaning

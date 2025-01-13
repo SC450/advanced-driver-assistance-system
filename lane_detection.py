@@ -56,7 +56,7 @@ class LaneDetector:
         cv.fillPoly(mask, verts, white)
 
         # Return the masked image
-        cv.imshow("Mask", mask) # for debugging
+        #cv.imshow("Mask", mask) # for debugging
         return cv.bitwise_and(img, mask)
 
     def lane_mask_color(self, img):
@@ -76,10 +76,6 @@ class LaneDetector:
         Returns
             An array of the Hough lines.
         """
-
-        # Default: lines = cv.HoughLinesP(img, 1, np.pi/180, 50, maxLineGap=50, minLineLength=300)
-        #lines = cv.HoughLinesP(img, 1, np.pi/180, 77, maxLineGap=300)
-        #lines = cv.HoughLinesP(img, 1, np.pi/180, threshold=300, maxLineGap=500, minLineLength=900)
         lines = cv.HoughLinesP(img, 1, np.pi/180, 110, maxLineGap=600, minLineLength=100)
         return lines
 
@@ -94,15 +90,5 @@ class LaneDetector:
         Returns:
             Image with hough lines drawn over it.
         """
-        # Approach 1
-        # for line in lines:
-        #     x1, y1, x2, y2 = line[0]
-        #     cv.line(img, (x1, y1), (x2, y2), (0, 255, 0), 3)
-
-        # Approach 2
-        #map(lambda line: cv.line(img, (line[0][0], line[0][1]), (line[0][2], line[0][3]), (0, 255, 0), 3), lines)
-
-        # Approach 3
         [cv.line(img, (line[0][0], line[0][1]), (line[0][2], line[0][3]), (0, 255, 0), 3) for line in lines]
-
         return img
