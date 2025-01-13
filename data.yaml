@@ -1,15 +1,11 @@
 train: images_data/train
 val: images_data/test
-nc: 10
+nc: 6
 names: [
 'Person',
 'Car',
 'Truck',
 'Semi',
-'RedLight',
-'YellowLight',
-'GreenLight',
-'WaitLight',
 'StopSign',
 'SpeedLimitSign'
 ]

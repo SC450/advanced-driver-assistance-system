@@ -31,6 +31,35 @@ class YOLO_Pred():
         self.yolo.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
         self.yolo.setPreferableTarget(cv.dnn.DNN_TARGET_CPU_FP16)
 
+    def get_detection_data(self, row, x_factor, y_factor, confidences, boxes, classes):
+        """
+        Helper function for predictions().
+        """
+        CONFIDENCE_THRESHOLD = 0.4
+        PROBABILITY_THRESHOLD = 0.25
+
+        confidence = row[4] # Confidence is in the 5th column of the row
+        if confidence > CONFIDENCE_THRESHOLD:
+            class_score = row[5:].max() # Take the maximum probability of 10 objects possible
+            class_id = row[5:].argmax() # Get the index position at which maximum probability occurs
+
+            if class_score > PROBABILITY_THRESHOLD:
+                cx, cy, w, h = row[:4]
+
+                # Construct the bounding box from the four values
+                # Get left, top, width, and height
+                left = int((cx - 0.5 * w) * x_factor)
+                top = int((cy - 0.5 * h) * y_factor)
+                width = int(w * x_factor)
+                height = int(h * y_factor)
+
+                box = np.array([left, top, width, height])
+
+                # Append values into respective lists
+                confidences.append(confidence)
+                boxes.append(box)
+                classes.append(class_id)
+
     def predictions(self, image):
         """
         Gets predictions using the YOLO model.
@@ -58,8 +87,6 @@ class YOLO_Pred():
 
         # Non Maximum Supression
         # Step 1: Filter detections based on confidence score and probability score
-        CONFIDENCE_THRESHOLD = 0.4
-        PROBABILITY_THRESHOLD = 0.25
         detections = preds[0]
         boxes = []
         confidences = []
@@ -70,29 +97,33 @@ class YOLO_Pred():
         x_factor = image_w/INPUT_WH_YOLO
         y_factor = image_h/INPUT_WH_YOLO
 
-        for i in range(len(detections)):
-            row = detections[i]
-            confidence = row[4] # Confidence is in the 5th column of the row
-            if confidence > CONFIDENCE_THRESHOLD:
-                class_score = row[5:].max() # Take the maximum probability of 10 objects possible
-                class_id = row[5:].argmax() # Get the index position at which maximum probability occurs
+        # Approach 1
+        # for i in range(len(detections)):
+        #     row = detections[i]
+        #     confidence = row[4] # Confidence is in the 5th column of the row
+        #     if confidence > CONFIDENCE_THRESHOLD:
+        #         class_score = row[5:].max() # Take the maximum probability of 10 objects possible
+        #         class_id = row[5:].argmax() # Get the index position at which maximum probability occurs
 
-                if class_score > PROBABILITY_THRESHOLD:
-                    cx, cy, w, h = row[:4]
+        #         if class_score > PROBABILITY_THRESHOLD:
+        #             cx, cy, w, h = row[:4]
 
-                    # Construct the bounding box from the four values
-                    # Get left, top, width, and height
-                    left = int((cx - 0.5 * w) * x_factor)
-                    top = int((cy - 0.5 * h) * y_factor)
-                    width = int(w * x_factor)
-                    height = int(h * y_factor)
+        #             # Construct the bounding box from the four values
+        #             # Get left, top, width, and height
+        #             left = int((cx - 0.5 * w) * x_factor)
+        #             top = int((cy - 0.5 * h) * y_factor)
+        #             width = int(w * x_factor)
+        #             height = int(h * y_factor)
 
-                    box = np.array([left, top, width, height])
+        #             box = np.array([left, top, width, height])
 
-                    # Append values into respective lists
-                    confidences.append(confidence)
-                    boxes.append(box)
-                    classes.append(class_id)
+        #             # Append values into respective lists
+        #             confidences.append(confidence)
+        #             boxes.append(box)
+        #             classes.append(class_id)
+
+        # Approach 2
+        [self.get_detection_data(detections[i], x_factor, y_factor, confidences, boxes, classes) for i in range(len(detections))]
 
         # Cleaning
         boxes_np = np.array(boxes).tolist()
