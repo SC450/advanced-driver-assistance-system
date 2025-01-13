@@ -5,7 +5,7 @@ from yolo_predictions import YOLO_Pred
 from lane_detection import LaneDetector
 
 # Get video
-vid_file = "dashcam_data/1.mp4"
+vid_file = "dashcam_data/22.mp4"
 vid = cv.VideoCapture(vid_file)
 
 # Get YOLO model

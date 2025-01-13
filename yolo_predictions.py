@@ -35,7 +35,7 @@ class YOLO_Pred():
         """
         Helper function for predictions().
         """
-        CONFIDENCE_THRESHOLD = 0.4
+        CONFIDENCE_THRESHOLD = 0.2
         PROBABILITY_THRESHOLD = 0.25
 
         confidence = row[4] # Confidence is in the 5th column of the row

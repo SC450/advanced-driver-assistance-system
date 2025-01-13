@@ -18,7 +18,7 @@ class LaneDetector:
         gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
         # Apply Gaussian Blur
-        KERNEL_SIZE = 5
+        KERNEL_SIZE = 3
         blur = cv.GaussianBlur(gray, (KERNEL_SIZE, KERNEL_SIZE), cv.BORDER_DEFAULT)
 
         # Apply Canny Edge Detection
@@ -76,7 +76,7 @@ class LaneDetector:
         Returns
             An array of the Hough lines.
         """
-        lines = cv.HoughLinesP(img, 1, np.pi/180, 110, maxLineGap=600, minLineLength=100)
+        lines = cv.HoughLinesP(img, 1, np.pi/180, threshold=60, maxLineGap=900, minLineLength=100)
         return lines
 
     def draw_lines(self, img, lines):
